@@ -1,0 +1,48 @@
+<h1>TODO App</h1>
+
+<h3>Added Successfully</h3>
+<div class="main-container-cls">
+  <div class="add-edit-container-cls">
+    <div>
+      <input
+        [(ngModel)]="todoTitle"
+        class="add-input-cls"
+        type="text"
+        value=""
+      />
+    </div>
+    <div>
+      <input
+        class="add-btn-cls"
+        type="button"
+        value="{{ isAddOperation ? 'Add' : 'Edit' }}"
+        (click)="addEditTodo()"
+      />
+      <input class="add-btn-cls" type="button" value="Multiple Delete" />
+    </div>
+  </div>
+  <div class="list-container-cls">
+    <div *ngFor="let val of todoArr" class="todo-list-container-cls">
+      <input type="checkbox" />
+      <div style="display: flex; flex: 1" class="todo-title-cls">
+        {{ val.todoTitle }} -- {{ val.id }}
+      </div>
+      <div style="margin-right: 10px" class="todo-title-cls">
+        <input
+          (click)="editTodo(val.id)"
+          class="add-btn-cls"
+          type="button"
+          value="Edit"
+        />
+      </div>
+      <div class="todo-title-cls">
+        <input
+          class="add-btn-cls"
+          (click)="deleteTodo(val.id)"
+          type="button"
+          value="Delete"
+        />
+      </div>
+    </div>
+  </div>
+</div>
